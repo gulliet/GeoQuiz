@@ -7,7 +7,7 @@ import android.widget.Button;
 public class QuizActivity extends AppCompatActivity {
 
     private Button mTrueButton;
-    private Button mFalsebutton;
+    private Button mFalseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +15,6 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         mTrueButton = (Button) findViewById(R.id.true_button);
-        mFalsebutton = (Button) findViewById(R.id.false_button);
+        mFalseButton = (Button) findViewById(R.id.false_button);
     }
 }
