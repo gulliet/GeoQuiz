@@ -1,3 +1,5 @@
+package com.example.android.geoquiz;
+
 /**
  * Created by jean-marc on 30/12/17.
  */
