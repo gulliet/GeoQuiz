@@ -85,7 +85,13 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart called.");
+        Log.d(TAG, "onStart() called.");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume() called.")
     }
 
     private void updateIndex(int num) {
