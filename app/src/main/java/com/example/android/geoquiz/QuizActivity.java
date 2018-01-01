@@ -13,6 +13,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
+    private Button mPreviousButton;
     private TextView mQuestionTextView;
 
     private Question[] mQuestionBank = new Question[] {
@@ -34,7 +35,7 @@ public class QuizActivity extends AppCompatActivity {
         mQuestionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateIndex();
+                updateIndex(1);
                 updateQuestion();
             }
         });
@@ -55,11 +56,20 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+        mPreviousButton = (Button) findViewById(R.id.previous_button);
+        mPreviousButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateIndex(-1);
+                updateQuestion();
+            }
+        });
+
         mNextButton = (Button) findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateIndex();
+                updateIndex(1);
                 updateQuestion();
             }
         });
@@ -67,8 +77,11 @@ public class QuizActivity extends AppCompatActivity {
         updateQuestion();
     }
 
-    private void updateIndex() {
-        mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+    private void updateIndex(int num) {
+        mCurrentIndex = (mCurrentIndex + num) % mQuestionBank.length;
+        if (mCurrentIndex < 0) {
+            mCurrentIndex += mQuestionBank.length;
+        }
     }
 
     private void updateQuestion() {
