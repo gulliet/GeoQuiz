@@ -106,6 +106,12 @@ public class QuizActivity extends AppCompatActivity {
         Log.d(TAG, "onStop() called.");
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy() called.");
+    }
+
     private void updateIndex(int num) {
         mCurrentIndex = (mCurrentIndex + num) % mQuestionBank.length;
         if (mCurrentIndex < 0) {
