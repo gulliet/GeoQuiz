@@ -94,6 +94,12 @@ public class QuizActivity extends AppCompatActivity {
         Log.d(TAG, "onResume() called.");
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause() called.");
+    }
+
     private void updateIndex(int num) {
         mCurrentIndex = (mCurrentIndex + num) % mQuestionBank.length;
         if (mCurrentIndex < 0) {
