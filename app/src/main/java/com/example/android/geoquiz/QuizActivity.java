@@ -100,6 +100,12 @@ public class QuizActivity extends AppCompatActivity {
         Log.d(TAG, "onPause() called.");
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop() called.");
+    }
+
     private void updateIndex(int num) {
         mCurrentIndex = (mCurrentIndex + num) % mQuestionBank.length;
         if (mCurrentIndex < 0) {
