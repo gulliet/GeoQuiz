@@ -82,6 +82,12 @@ public class QuizActivity extends AppCompatActivity {
         updateQuestion();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart called.");
+    }
+
     private void updateIndex(int num) {
         mCurrentIndex = (mCurrentIndex + num) % mQuestionBank.length;
         if (mCurrentIndex < 0) {
