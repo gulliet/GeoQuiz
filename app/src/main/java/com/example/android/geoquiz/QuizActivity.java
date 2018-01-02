@@ -132,11 +132,19 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void updateQuestion() {
+        /* Since we display a new question, the answer buttons must be enabled. */
+        mTrueButton.setEnabled(true);
+        mFalseButton.setEnabled(true);
+
         int question = mQuestionBank[mCurrentIndex].getTextResId();
         mQuestionTextView.setText(question);
     }
 
     private void checkAnswer(boolean userPressedTrue) {
+        /* User cannot enter multiple answers to the current question. */
+        mTrueButton.setEnabled(false);
+        mFalseButton.setEnabled(false);
+
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
         int messageResId = R.string.incorrect_toast;
         if (userPressedTrue == answerIsTrue) {
