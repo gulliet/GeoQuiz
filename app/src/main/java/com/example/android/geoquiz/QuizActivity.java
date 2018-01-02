@@ -113,6 +113,13 @@ public class QuizActivity extends AppCompatActivity {
         Log.d(TAG, "onDestroy() called.");
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState called.");
+        outState.putInt(KEY_INDEX, mCurrentIndex);
+    }
+
     private void updateIndex(int num) {
         mCurrentIndex = (mCurrentIndex + num) % mQuestionBank.length;
         if (mCurrentIndex < 0) {
